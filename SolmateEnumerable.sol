@@ -9,6 +9,7 @@ contract SolmateEnumerable is SolmateERC721 {
     constructor(string memory _name, string memory _symbol) SolmateERC721(_name, _symbol) {}
 
     function mint(address _owner, uint256 _tokenId) external {
+        totalSupply++;
         _mint(_owner, _tokenId);
     }
 
@@ -31,7 +32,8 @@ contract SolmateEnumerable is SolmateERC721 {
         return tokens;
     }
 
-    function tokenURI(uint256 id) public view override returns (string memory){
+    function tokenURI(uint256 id) public view override returns (string memory) {
         return "";
     }
 }
+
